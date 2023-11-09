@@ -45,7 +45,6 @@ data = data.select(
 
 data = data.filter("appId != 'appId'")
 
-data.summary("count", "min", "max").show(truncate=False)
 data = data.withColumn(
     "price",
     binning_data(col("price"), lit(50))
@@ -147,4 +146,4 @@ GROUP BY
     free,
     offersIAP 
 
-""").write.csv(path=)
+""").filter("LENGTH(metric) > 0").coalesce(1).write.mode("overwrite").csv(path="./output/", header=True)
