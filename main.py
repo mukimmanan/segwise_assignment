@@ -58,15 +58,16 @@ data = data.withColumn(
     "score",
     binning_data(col("score"), lit(1))
 ).withColumn(
-    "score",
+    "minInstalls",
     binning_data(col("minInstalls"), lit(100000))
 ).cache()
+# Caching the data since, we will be using this dataframe for multiple actions, so caching will help reduce time
 
 # Creating Temp Views
 data.createOrReplaceTempView("playstore")
 
 # Insights
-spark.sql("""
+output = spark.sql("""
 SELECT 
     CONCAT('Year=', releasedYear) AS metric,
     count(appId) AS value
@@ -88,7 +89,7 @@ GROUP BY
 UNION ALL
 
 SELECT
-    CONCAT('Year=', releasedYear, ';', ' score=', score) AS metric,
+    CONCAT('Year=', releasedYear, ';', ' Score=[', score, ']') AS metric,
     count(appId) AS value
 FROM playstore
 GROUP BY
@@ -119,7 +120,7 @@ GROUP BY
 UNION ALL
 
 SELECT 
-    CONCAT('Year=', releasedYear, ';', ' Rating=', ratings) AS metric,
+    CONCAT('Year=', releasedYear, ';', ' Rating=[', ratings, ']') AS metric,
     count(appId) AS value
 FROM playstore
 GROUP BY
@@ -129,7 +130,7 @@ GROUP BY
 UNION ALL
 
 SELECT 
-    CONCAT('Year=', releasedYear, ';', ' Score=', score) AS metric,
+    CONCAT('Year=', releasedYear, ';', ' Score=[', score, ']') AS metric,
     count(appId) AS value
 FROM playstore
 GROUP BY
@@ -139,11 +140,43 @@ GROUP BY
 UNION ALL
 
 SELECT 
-    CONCAT('Free=', free, ';', ' IAP=', offersIAP) AS metric,
+    CONCAT('Free=', free, ';', ' OffersIAP=', offersIAP) AS metric,
     count(appId) AS value
 FROM playstore
 GROUP BY
     free,
     offersIAP 
 
-""").filter("LENGTH(metric) > 0").coalesce(1).write.mode("overwrite").csv(path="./output/", header=True)
+UNION ALL
+
+SELECT 
+    CONCAT('AdSupported=', adSupported, ';', ' ContainsAds=', containsAds) AS metric,
+    count(appId) AS value
+FROM playstore
+GROUP BY
+    adSupported,
+    containsAds
+
+UNION ALL
+
+SELECT 
+    CONCAT('Free=', free, ';', ' Reviews=[', reviews, ']') AS metric,
+    count(appId) AS value
+FROM playstore
+GROUP BY
+    free,
+    reviews
+
+UNION ALL
+
+SELECT 
+    CONCAT('OffersIAP=', offersIAP, ';', ' Reviews=[', reviews, ']') AS metric,
+    count(appId) AS value
+FROM playstore
+GROUP BY
+    offersIAP,
+    reviews
+""")
+
+filter_data_perc = data.count() * 0.02
+output.filter("LENGTH(metric) > 0 AND value > {}".format(filter_data_perc)).coalesce(1).write.mode("overwrite").csv(path="./output/", header=True)

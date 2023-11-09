@@ -1,0 +1,75 @@
+metric,value
+Year=2018,299233
+Year=2015,105278
+Year=2022,587039
+Year=2014,72689
+Year=2019,515625
+Year=2020,697723
+Year=2016,145810
+Year=2017,218829
+Year=2021,717334
+Free=true; Genre=EDUCATION; Year=2021,81740
+Free=true; Genre=EDUCATION; Year=2020,81976
+Year=2021; Score=[0 - 1],664865
+Year=2019; Score=[0 - 1],461023
+Year=2022; Score=[0 - 1],557494
+Year=2020; Score=[0 - 1],637929
+Year=2015; Score=[0 - 1],71800
+Year=2018; Score=[0 - 1],252282
+Year=2017; Score=[0 - 1],175171
+Year=2016; Score=[0 - 1],109308
+Price=[0 - 50]; Genre=TRAVEL_AND_LOCAL; Installs=[0 - 100000],86536
+Price=[0 - 50]; Genre=GAME_ARCADE; Installs=[0 - 100000],73440
+Price=[0 - 50]; Genre=PERSONALIZATION; Installs=[0 - 100000],92006
+Price=[0 - 50]; Genre=PRODUCTIVITY; Installs=[0 - 100000],141992
+Price=[0 - 50]; Genre=BOOKS_AND_REFERENCE; Installs=[0 - 100000],135423
+Price=[0 - 50]; Genre=ENTERTAINMENT; Installs=[0 - 100000],194438
+Price=[0 - 50]; Genre=COMMUNICATION; Installs=[0 - 100000],76113
+Price=[0 - 50]; Genre=GAME_CASUAL; Installs=[0 - 100000],77992
+Price=[0 - 50]; Genre=LIFESTYLE; Installs=[0 - 100000],156662
+Price=[0 - 50]; Genre=FOOD_AND_DRINK; Installs=[0 - 100000],122247
+Price=[0 - 50]; Genre=GAME_PUZZLE; Installs=[0 - 100000],69651
+Price=[0 - 50]; Genre=TOOLS; Installs=[0 - 100000],218002
+Price=[0 - 50]; Genre=FINANCE; Installs=[0 - 100000],96022
+Price=[0 - 50]; Genre=MUSIC_AND_AUDIO; Installs=[0 - 100000],208657
+Price=[0 - 50]; Genre=EDUCATION; Installs=[0 - 100000],373242
+Price=[0 - 50]; Genre=SHOPPING; Installs=[0 - 100000],155690
+Price=[0 - 50]; Genre=BUSINESS; Installs=[0 - 100000],245017
+Year=2022; AdSupported=false,272972
+Year=2017; AdSupported=false,125680
+Year=2018; AdSupported=true,122740
+Year=2018; AdSupported=false,176493
+Year=2019; AdSupported=true,201771
+Year=2019; AdSupported=false,313854
+Year=2016; AdSupported=false,86740
+Year=2020; AdSupported=true,277422
+Year=2021; AdSupported=false,403689
+Year=2020; AdSupported=false,420301
+Year=2022; AdSupported=true,314067
+Year=2021; AdSupported=true,313645
+Year=2017; AdSupported=true,93149
+Year=2020; Rating=[0 - 10000],693268
+Year=2022; Rating=[0 - 10000],586213
+Year=2017; Rating=[0 - 10000],213940
+Year=2018; Rating=[0 - 10000],294664
+Year=2021; Rating=[0 - 10000],714442
+Year=2019; Rating=[0 - 10000],510782
+Year=2015; Rating=[0 - 10000],101039
+Year=2016; Rating=[0 - 10000],141294
+Year=2021; Score=[0 - 1],664865
+Year=2019; Score=[0 - 1],461023
+Year=2022; Score=[0 - 1],557494
+Year=2020; Score=[0 - 1],637929
+Year=2015; Score=[0 - 1],71800
+Year=2018; Score=[0 - 1],252282
+Year=2017; Score=[0 - 1],175171
+Year=2016; Score=[0 - 1],109308
+Free=true; IAP=0,3117913
+Free=false; IAP=0,102537
+Free=true; IAP=1,225755
+AdSupported=true; ContainsAds=true,1498356
+AdSupported=false; ContainsAds=false,1952707
+Free=true; Reviews=[0 - 10000],3339970
+Free=false; Reviews=[0 - 10000],107342
+OffersIAP=1; Reviews=[0 - 10000],227993
+OffersIAP=0; Reviews=[0 - 10000],3219319
