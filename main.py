@@ -4,7 +4,6 @@ from pyspark.sql.session import SparkSession
 from utils import csv_read, bin_data
 from pyspark.sql.types import *
 
-
 sc = SparkContext(appName="Segwise Assignment", master="local[*]")
 spark = SparkSession(sc).builder.getOrCreate()
 
@@ -16,12 +15,12 @@ data = sc \
     .mapPartitions(lambda row: csv_read(row)) \
     .map(lambda row: row[1:] if len(row) == 36 else row) \
     .toDF([
-    'appId', 'developer', 'developerId', 'developerWebsite', 'free', 'genre', 'genreId', 'inAppProductPrice',
-    'minInstalls', 'offersIAP', 'originalPrice', 'price', 'ratings', 'len screenshots', 'adSupported',
-    'containsAds', 'reviews', 'releasedDayYear', 'sale', 'score', 'summary', 'title', 'updated',
-    'histogram1', 'histogram2', 'histogram3', 'histogram4', 'histogram5', 'releasedDay',
-    'releasedYear', 'releasedMonth', 'dateUpdated', 'minprice', 'maxprice', 'ParseReleasedDayYear'
-])
+        'appId', 'developer', 'developerId', 'developerWebsite', 'free', 'genre', 'genreId', 'inAppProductPrice',
+        'minInstalls', 'offersIAP', 'originalPrice', 'price', 'ratings', 'len screenshots', 'adSupported',
+        'containsAds', 'reviews', 'releasedDayYear', 'sale', 'score', 'summary', 'title', 'updated',
+        'histogram1', 'histogram2', 'histogram3', 'histogram4', 'histogram5', 'releasedDay',
+        'releasedYear', 'releasedMonth', 'dateUpdated', 'minprice', 'maxprice', 'ParseReleasedDayYear'
+    ])
 
 data = data.select(
     "appId",
@@ -148,5 +147,4 @@ GROUP BY
     free,
     offersIAP 
 
-""").show(100, truncate=False)
-
+""").write.csv(path=)
