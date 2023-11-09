@@ -176,6 +176,17 @@ FROM playstore
 GROUP BY
     offersIAP,
     reviews
+
+UNION ALL
+
+SELECT 
+    CONCAT('Free=', free, ';', ' AdSupported=', adSupported, ';', ' ContainsAds=', containsAds) AS metric,
+    count(appId) AS value
+FROM playstore
+GROUP BY
+    free,
+    adSupported,
+    containsAds
 """)
 
 filter_data_perc = data.count() * 0.02
