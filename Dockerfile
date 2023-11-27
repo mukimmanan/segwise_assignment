@@ -16,4 +16,3 @@ COPY archive.zip .
 
 RUN unzip "archive.zip"
 RUN mv google-play-dataset-by-tapivedotcom.csv playstore.csv
-RUN mkdir output
