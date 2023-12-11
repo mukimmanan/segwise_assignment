@@ -190,4 +190,4 @@ GROUP BY
 """)
 
 filter_data_perc = data.count() * 0.02
-output.filter("LENGTH(metric) > 0 AND (value > {} OR metric LIKE '%Rating%')".format(filter_data_perc)).coalesce(1).write.mode("overwrite").csv(path="./output/", header=True)
+output.filter("LENGTH(metric) > 0 AND (value > {} OR metric LIKE '%Rating%' OR metric LIKE '%Score%' OR metric LIKE '%Review%')".format(filter_data_perc)).coalesce(1).write.mode("overwrite").csv(path="./output/", header=True)
